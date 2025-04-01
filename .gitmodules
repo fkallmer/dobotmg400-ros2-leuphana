@@ -4,3 +4,6 @@
 [submodule "ros2_ws/src/PlayStation-JoyInterface-ROS2"]
 	path = ros2_ws/src/PlayStation-JoyInterface-ROS2
 	url = https://github.com/HarvestX/PlayStation-JoyInterface-ROS2
+[submodule "ros2_ws/src/sllidar_ros2"]
+	path = ros2_ws/src/sllidar_ros2
+	url = https://github.com/Slamtec/sllidar_ros2
