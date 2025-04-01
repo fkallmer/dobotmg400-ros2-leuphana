@@ -1,0 +1,14 @@
+running develop
+running egg_info
+writing integration_package.egg-info/PKG-INFO
+writing dependency_links to integration_package.egg-info/dependency_links.txt
+writing entry points to integration_package.egg-info/entry_points.txt
+writing requirements to integration_package.egg-info/requires.txt
+writing top-level names to integration_package.egg-info/top_level.txt
+reading manifest file 'integration_package.egg-info/SOURCES.txt'
+writing manifest file 'integration_package.egg-info/SOURCES.txt'
+running build_ext
+Creating /root/ros2_ws/install/integration_package/lib/python3.10/site-packages/integration-package.egg-link (link to .)
+
+Installed /root/ros2_ws/build/integration_package
+running symlink_data

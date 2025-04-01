@@ -1,0 +1,28 @@
+[0.037s] Invoking command in '/root/ros2_ws/build/mg400_common': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/mg400_common -- -j4 -l4
+[0.166s] [100%] Built target mg400_common
+[0.257s] Invoked command in '/root/ros2_ws/build/mg400_common' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble /usr/bin/cmake --build /root/ros2_ws/build/mg400_common -- -j4 -l4
+[0.257s] Invoking command in '/root/ros2_ws/build/mg400_common': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/mg400_common
+[0.301s] -- Install configuration: ""
+[0.311s] -- Execute custom install script
+[0.311s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/include/mg400_common/mg400_ik_util.hpp
+[0.311s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/library_path.sh
+[0.311s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/library_path.dsv
+[0.311s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/lib/libmg400_common.so
+[0.312s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/ament_index/resource_index/package_run_dependencies/mg400_common
+[0.312s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/ament_index/resource_index/parent_prefix_path/mg400_common
+[0.313s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/ament_prefix_path.sh
+[0.314s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/ament_prefix_path.dsv
+[0.314s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/path.sh
+[0.315s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/environment/path.dsv
+[0.325s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/local_setup.bash
+[0.326s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/local_setup.sh
+[0.326s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/local_setup.zsh
+[0.326s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/local_setup.dsv
+[0.326s] -- Symlinking: /root/ros2_ws/install/mg400_common/share/mg400_common/package.dsv
+[0.351s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/ament_index/resource_index/packages/mg400_common
+[0.351s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.352s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/cmake/ament_cmake_export_libraries-extras.cmake
+[0.352s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/cmake/mg400_commonConfig.cmake
+[0.352s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/cmake/mg400_commonConfig-version.cmake
+[0.352s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_common/share/mg400_common/package.xml
+[0.481s] Invoked command in '/root/ros2_ws/build/mg400_common' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble /usr/bin/cmake --install /root/ros2_ws/build/mg400_common

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>mqtt_bridge</name>
+  <version>0.0.1</version>
+  <description>MQTT to ROS 2 bridge</description>
+  <maintainer email="falk-richard.kallmer@stud.leuphana.de">Falk-Richard Kallmer</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend> 
+  <depend>PahoMqttCpp</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

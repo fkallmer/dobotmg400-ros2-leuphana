@@ -1,0 +1,41 @@
+[0.025s] Invoking command in '/root/ros2_ws/build/ultrasonic_control': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/root/ros2_ws/install/mg400_common/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /root/ros2_ws/build/ultrasonic_control -- -j4 -l4
+[0.114s] [35m[1mConsolidate compiler generated dependencies of target ultrasonic_control_node[0m
+[0.153s] [ 50%] [32mBuilding CXX object CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o[0m
+[4.587s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[4.587s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[4.588s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[4.588s]                  from [01m[K/root/ros2_ws/src/ultrasonic_control/include/ultrasonic_control/ultrasonic_control_node.hpp:5[m[K,
+[4.588s]                  from [01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:15[m[K:
+[4.588s] [01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K In member function ‘[01m[Kvoid ultrasonic_control::UltrasonicControlNode::update_motion()[m[K’:
+[4.588s] [01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:94:41:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[Kconst char*[m[K’ [[01;31m[K-fpermissive[m[K]
+[4.589s]    94 |         RCLCPP_INFO(this->get_logger(), [01;31m[Krobot_mode[m[K);
+[4.589s]       |                                         [01;31m[K^~~~~~~~~~[m[K
+[4.589s]       |                                         [01;31m[K|[m[K
+[4.589s]       |                                         [01;31m[Kint[m[K
+[4.589s] In file included from [01m[K/opt/ros/humble/include/rmw/rmw/types.h:28[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rcl/rcl/types.h:20[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rcl/rcl/log_level.h:22[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rcl/rcl/arguments.h:21[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rcl/rcl/context.h:28[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rcl/rcl/guard_condition.h:26[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:30[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[4.589s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[4.590s]                  from [01m[K/root/ros2_ws/src/ultrasonic_control/include/ultrasonic_control/ultrasonic_control_node.hpp:5[m[K,
+[4.590s]                  from [01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:15[m[K:
+[4.590s] [01m[K/opt/ros/humble/include/rcutils/rcutils/logging.h:479:16:[m[K [01;36m[Knote: [m[K  initializing argument 4 of ‘[01m[Kvoid rcutils_log(const rcutils_log_location_t*, int, const char*, const char*, ...)[m[K’
+[4.590s]   479 |   [01;36m[Kconst char * format[m[K,
+[4.590s]       |   [01;36m[K~~~~~~~~~~~~~^~~~~~[m[K
+[10.288s] gmake[2]: *** [CMakeFiles/ultrasonic_control_node.dir/build.make:76: CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o] Error 1
+[10.288s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ultrasonic_control_node.dir/all] Error 2
+[10.289s] gmake: *** [Makefile:146: all] Error 2
+[10.292s] Invoked command in '/root/ros2_ws/build/ultrasonic_control' returned '2': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/root/ros2_ws/install/mg400_common/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /root/ros2_ws/build/ultrasonic_control -- -j4 -l4

@@ -1,0 +1,293 @@
+[0.000000] (-) TimerEvent: {}
+[0.001168] (-) JobUnselected: {'identifier': 'integration_package'}
+[0.001337] (-) JobUnselected: {'identifier': 'mg400'}
+[0.001643] (-) JobUnselected: {'identifier': 'mg400_bringup'}
+[0.001955] (-) JobUnselected: {'identifier': 'mg400_common'}
+[0.002046] (-) JobUnselected: {'identifier': 'mg400_description'}
+[0.002077] (-) JobUnselected: {'identifier': 'mg400_interface'}
+[0.002100] (-) JobUnselected: {'identifier': 'mg400_joy'}
+[0.002122] (-) JobUnselected: {'identifier': 'mg400_msgs'}
+[0.002142] (-) JobUnselected: {'identifier': 'mg400_node'}
+[0.002163] (-) JobUnselected: {'identifier': 'mg400_plugin'}
+[0.002183] (-) JobUnselected: {'identifier': 'mg400_plugin_base'}
+[0.002204] (-) JobUnselected: {'identifier': 'mg400_rviz_plugin'}
+[0.002224] (-) JobUnselected: {'identifier': 'mqtt_bridge'}
+[0.002243] (-) JobUnselected: {'identifier': 'p9n'}
+[0.002277] (-) JobUnselected: {'identifier': 'p9n_bringup'}
+[0.002306] (-) JobUnselected: {'identifier': 'p9n_example'}
+[0.002326] (-) JobUnselected: {'identifier': 'p9n_interface'}
+[0.002347] (-) JobUnselected: {'identifier': 'p9n_node'}
+[0.002367] (-) JobUnselected: {'identifier': 'p9n_test'}
+[0.002388] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.002415] (ultrasonic_control) JobQueued: {'identifier': 'ultrasonic_control', 'dependencies': OrderedDict([('mg400_msgs', '/root/ros2_ws/install/mg400_msgs'), ('mqtt_bridge', '/root/ros2_ws/install/mqtt_bridge')])}
+[0.002451] (ultrasonic_control) JobStarted: {'identifier': 'ultrasonic_control'}
+[0.027303] (ultrasonic_control) JobProgress: {'identifier': 'ultrasonic_control', 'progress': 'cmake'}
+[0.028902] (ultrasonic_control) JobProgress: {'identifier': 'ultrasonic_control', 'progress': 'build'}
+[0.030925] (ultrasonic_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/ros2_ws/build/ultrasonic_control', '--', '-j4', '-l4'], 'cwd': '/root/ros2_ws/build/ultrasonic_control', 'env': OrderedDict([('HOSTNAME', 'niklas-desktop'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/root/ros2_ws/install/mg400_common/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/root'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/root/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ''), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/integration_package:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/opt/ros/humble'), ('PWD', '/root/ros2_ws/build/ultrasonic_control'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/root/ros2_ws/build/p9n_bringup:/root/ros2_ws/install/p9n_bringup/lib/python3.10/site-packages:/root/ros2_ws/build/mg400_bringup:/root/ros2_ws/install/mg400_bringup/lib/python3.10/site-packages:/root/ros2_ws/build/integration_package:/root/ros2_ws/install/integration_package/lib/python3.10/site-packages:/root/ros2_ws/install/mg400_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble')]), 'shell': False}
+[0.099329] (-) TimerEvent: {}
+[0.133520] (ultrasonic_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ultrasonic_control_node\x1b[0m\n'}
+[0.174109] (ultrasonic_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o\x1b[0m\n'}
+[0.200403] (-) TimerEvent: {}
+[0.300857] (-) TimerEvent: {}
+[0.401518] (-) TimerEvent: {}
+[0.502306] (-) TimerEvent: {}
+[0.604377] (-) TimerEvent: {}
+[0.704913] (-) TimerEvent: {}
+[0.805710] (-) TimerEvent: {}
+[0.906173] (-) TimerEvent: {}
+[1.006678] (-) TimerEvent: {}
+[1.107106] (-) TimerEvent: {}
+[1.207574] (-) TimerEvent: {}
+[1.308413] (-) TimerEvent: {}
+[1.408840] (-) TimerEvent: {}
+[1.509289] (-) TimerEvent: {}
+[1.609749] (-) TimerEvent: {}
+[1.710197] (-) TimerEvent: {}
+[1.810637] (-) TimerEvent: {}
+[1.911092] (-) TimerEvent: {}
+[2.011557] (-) TimerEvent: {}
+[2.112041] (-) TimerEvent: {}
+[2.212482] (-) TimerEvent: {}
+[2.312918] (-) TimerEvent: {}
+[2.413361] (-) TimerEvent: {}
+[2.513807] (-) TimerEvent: {}
+[2.614237] (-) TimerEvent: {}
+[2.714697] (-) TimerEvent: {}
+[2.815150] (-) TimerEvent: {}
+[2.915604] (-) TimerEvent: {}
+[3.016053] (-) TimerEvent: {}
+[3.116528] (-) TimerEvent: {}
+[3.216939] (-) TimerEvent: {}
+[3.317348] (-) TimerEvent: {}
+[3.417760] (-) TimerEvent: {}
+[3.518173] (-) TimerEvent: {}
+[3.618626] (-) TimerEvent: {}
+[3.719042] (-) TimerEvent: {}
+[3.819482] (-) TimerEvent: {}
+[3.919913] (-) TimerEvent: {}
+[4.020361] (-) TimerEvent: {}
+[4.120792] (-) TimerEvent: {}
+[4.221220] (-) TimerEvent: {}
+[4.321703] (-) TimerEvent: {}
+[4.422145] (-) TimerEvent: {}
+[4.522580] (-) TimerEvent: {}
+[4.623009] (-) TimerEvent: {}
+[4.723456] (-) TimerEvent: {}
+[4.823868] (-) TimerEvent: {}
+[4.924326] (-) TimerEvent: {}
+[5.024774] (-) TimerEvent: {}
+[5.125208] (-) TimerEvent: {}
+[5.225640] (-) TimerEvent: {}
+[5.326076] (-) TimerEvent: {}
+[5.426532] (-) TimerEvent: {}
+[5.526988] (-) TimerEvent: {}
+[5.627443] (-) TimerEvent: {}
+[5.727860] (-) TimerEvent: {}
+[5.828289] (-) TimerEvent: {}
+[5.928696] (-) TimerEvent: {}
+[6.029110] (-) TimerEvent: {}
+[6.129529] (-) TimerEvent: {}
+[6.229952] (-) TimerEvent: {}
+[6.330401] (-) TimerEvent: {}
+[6.430830] (-) TimerEvent: {}
+[6.531252] (-) TimerEvent: {}
+[6.631685] (-) TimerEvent: {}
+[6.732121] (-) TimerEvent: {}
+[6.832576] (-) TimerEvent: {}
+[6.932993] (-) TimerEvent: {}
+[7.033472] (-) TimerEvent: {}
+[7.133886] (-) TimerEvent: {}
+[7.234344] (-) TimerEvent: {}
+[7.334791] (-) TimerEvent: {}
+[7.435228] (-) TimerEvent: {}
+[7.535672] (-) TimerEvent: {}
+[7.636121] (-) TimerEvent: {}
+[7.736575] (-) TimerEvent: {}
+[7.837005] (-) TimerEvent: {}
+[7.937472] (-) TimerEvent: {}
+[8.037901] (-) TimerEvent: {}
+[8.138341] (-) TimerEvent: {}
+[8.238769] (-) TimerEvent: {}
+[8.339202] (-) TimerEvent: {}
+[8.439661] (-) TimerEvent: {}
+[8.540091] (-) TimerEvent: {}
+[8.640552] (-) TimerEvent: {}
+[8.740993] (-) TimerEvent: {}
+[8.841531] (-) TimerEvent: {}
+[8.941931] (-) TimerEvent: {}
+[9.042338] (-) TimerEvent: {}
+[9.142734] (-) TimerEvent: {}
+[9.243189] (-) TimerEvent: {}
+[9.343674] (-) TimerEvent: {}
+[9.444160] (-) TimerEvent: {}
+[9.544638] (-) TimerEvent: {}
+[9.645103] (-) TimerEvent: {}
+[9.745610] (-) TimerEvent: {}
+[9.846053] (-) TimerEvent: {}
+[9.946573] (-) TimerEvent: {}
+[10.047084] (-) TimerEvent: {}
+[10.147515] (-) TimerEvent: {}
+[10.247933] (-) TimerEvent: {}
+[10.348337] (-) TimerEvent: {}
+[10.448737] (-) TimerEvent: {}
+[10.549147] (-) TimerEvent: {}
+[10.649562] (-) TimerEvent: {}
+[10.749969] (-) TimerEvent: {}
+[10.850390] (-) TimerEvent: {}
+[10.950811] (-) TimerEvent: {}
+[11.051414] (-) TimerEvent: {}
+[11.151959] (-) TimerEvent: {}
+[11.252409] (-) TimerEvent: {}
+[11.352849] (-) TimerEvent: {}
+[11.453306] (-) TimerEvent: {}
+[11.553735] (-) TimerEvent: {}
+[11.654171] (-) TimerEvent: {}
+[11.754766] (-) TimerEvent: {}
+[11.855233] (-) TimerEvent: {}
+[11.955793] (-) TimerEvent: {}
+[12.056222] (-) TimerEvent: {}
+[12.156655] (-) TimerEvent: {}
+[12.257075] (-) TimerEvent: {}
+[12.357527] (-) TimerEvent: {}
+[12.457939] (-) TimerEvent: {}
+[12.558351] (-) TimerEvent: {}
+[12.658769] (-) TimerEvent: {}
+[12.759173] (-) TimerEvent: {}
+[12.859595] (-) TimerEvent: {}
+[12.960009] (-) TimerEvent: {}
+[13.060474] (-) TimerEvent: {}
+[13.160902] (-) TimerEvent: {}
+[13.261338] (-) TimerEvent: {}
+[13.361745] (-) TimerEvent: {}
+[13.462164] (-) TimerEvent: {}
+[13.562603] (-) TimerEvent: {}
+[13.663029] (-) TimerEvent: {}
+[13.763474] (-) TimerEvent: {}
+[13.863882] (-) TimerEvent: {}
+[13.964312] (-) TimerEvent: {}
+[14.064718] (-) TimerEvent: {}
+[14.165132] (-) TimerEvent: {}
+[14.265568] (-) TimerEvent: {}
+[14.365986] (-) TimerEvent: {}
+[14.466427] (-) TimerEvent: {}
+[14.566875] (-) TimerEvent: {}
+[14.667298] (-) TimerEvent: {}
+[14.767716] (-) TimerEvent: {}
+[14.868135] (-) TimerEvent: {}
+[14.968566] (-) TimerEvent: {}
+[15.068977] (-) TimerEvent: {}
+[15.169416] (-) TimerEvent: {}
+[15.269841] (-) TimerEvent: {}
+[15.370279] (-) TimerEvent: {}
+[15.470698] (-) TimerEvent: {}
+[15.571108] (-) TimerEvent: {}
+[15.671553] (-) TimerEvent: {}
+[15.771958] (-) TimerEvent: {}
+[15.872378] (-) TimerEvent: {}
+[15.972791] (-) TimerEvent: {}
+[16.073202] (-) TimerEvent: {}
+[16.173633] (-) TimerEvent: {}
+[16.274046] (-) TimerEvent: {}
+[16.374475] (-) TimerEvent: {}
+[16.474891] (-) TimerEvent: {}
+[16.575318] (-) TimerEvent: {}
+[16.675724] (-) TimerEvent: {}
+[16.776132] (-) TimerEvent: {}
+[16.876565] (-) TimerEvent: {}
+[16.976973] (-) TimerEvent: {}
+[17.077411] (-) TimerEvent: {}
+[17.177836] (-) TimerEvent: {}
+[17.278251] (-) TimerEvent: {}
+[17.378680] (-) TimerEvent: {}
+[17.479110] (-) TimerEvent: {}
+[17.579579] (-) TimerEvent: {}
+[17.680022] (-) TimerEvent: {}
+[17.780517] (-) TimerEvent: {}
+[17.880949] (-) TimerEvent: {}
+[17.981382] (-) TimerEvent: {}
+[18.081827] (-) TimerEvent: {}
+[18.182289] (-) TimerEvent: {}
+[18.282732] (-) TimerEvent: {}
+[18.383180] (-) TimerEvent: {}
+[18.483645] (-) TimerEvent: {}
+[18.584086] (-) TimerEvent: {}
+[18.684549] (-) TimerEvent: {}
+[18.784991] (-) TimerEvent: {}
+[18.885461] (-) TimerEvent: {}
+[18.986021] (-) TimerEvent: {}
+[19.086555] (-) TimerEvent: {}
+[19.187044] (-) TimerEvent: {}
+[19.287502] (-) TimerEvent: {}
+[19.388148] (-) TimerEvent: {}
+[19.489255] (-) TimerEvent: {}
+[19.589715] (-) TimerEvent: {}
+[19.690153] (-) TimerEvent: {}
+[19.790605] (-) TimerEvent: {}
+[19.891034] (-) TimerEvent: {}
+[19.991502] (-) TimerEvent: {}
+[20.091930] (-) TimerEvent: {}
+[20.192392] (-) TimerEvent: {}
+[20.293125] (-) TimerEvent: {}
+[20.394184] (-) TimerEvent: {}
+[20.494643] (-) TimerEvent: {}
+[20.595132] (-) TimerEvent: {}
+[20.695822] (-) TimerEvent: {}
+[20.796510] (-) TimerEvent: {}
+[20.896895] (-) TimerEvent: {}
+[20.952186] (ultrasonic_control) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ultrasonic_control_node\x1b[0m\n'}
+[20.997066] (-) TimerEvent: {}
+[21.097621] (-) TimerEvent: {}
+[21.198117] (-) TimerEvent: {}
+[21.298728] (-) TimerEvent: {}
+[21.399551] (-) TimerEvent: {}
+[21.500724] (-) TimerEvent: {}
+[21.601868] (-) TimerEvent: {}
+[21.702781] (-) TimerEvent: {}
+[21.803743] (-) TimerEvent: {}
+[21.904869] (-) TimerEvent: {}
+[22.005655] (-) TimerEvent: {}
+[22.106277] (-) TimerEvent: {}
+[22.206658] (-) TimerEvent: {}
+[22.307180] (-) TimerEvent: {}
+[22.407742] (-) TimerEvent: {}
+[22.508146] (-) TimerEvent: {}
+[22.608596] (-) TimerEvent: {}
+[22.708955] (-) TimerEvent: {}
+[22.770308] (ultrasonic_control) StdoutLine: {'line': b'[100%] Built target ultrasonic_control_node\n'}
+[22.792848] (ultrasonic_control) CommandEnded: {'returncode': 0}
+[22.793655] (ultrasonic_control) JobProgress: {'identifier': 'ultrasonic_control', 'progress': 'install'}
+[22.809058] (-) TimerEvent: {}
+[22.812775] (ultrasonic_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/ros2_ws/build/ultrasonic_control'], 'cwd': '/root/ros2_ws/build/ultrasonic_control', 'env': OrderedDict([('HOSTNAME', 'niklas-desktop'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/root/ros2_ws/install/mg400_common/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/root'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/root/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ''), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/integration_package:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/opt/ros/humble'), ('PWD', '/root/ros2_ws/build/ultrasonic_control'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/root/ros2_ws/build/p9n_bringup:/root/ros2_ws/install/p9n_bringup/lib/python3.10/site-packages:/root/ros2_ws/build/mg400_bringup:/root/ros2_ws/install/mg400_bringup/lib/python3.10/site-packages:/root/ros2_ws/build/integration_package:/root/ros2_ws/install/integration_package/lib/python3.10/site-packages:/root/ros2_ws/install/mg400_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble')]), 'shell': False}
+[22.829614] (ultrasonic_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[22.830156] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/lib/ultrasonic_control/ultrasonic_control_node\n'}
+[22.843577] (ultrasonic_control) StdoutLine: {'line': b'-- Set runtime path of "/root/ros2_ws/install/ultrasonic_control/lib/ultrasonic_control/ultrasonic_control_node" to ""\n'}
+[22.843846] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/include\n'}
+[22.844264] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/include/ultrasonic_control\n'}
+[22.844409] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/include/ultrasonic_control/ultrasonic_control_node.hpp\n'}
+[22.844499] (ultrasonic_control) StdoutLine: {'line': b'-- Up-to-date: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control\n'}
+[22.844579] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log\n'}
+[22.844657] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/latest_list\n'}
+[22.844817] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/COLCON_IGNORE\n'}
+[22.844917] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/list_2025-03-20_17-25-56\n'}
+[22.845054] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/list_2025-03-20_17-25-56/logger_all.log\n'}
+[22.845139] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/latest\n'}
+[22.845251] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/bringup.launch.py\n'}
+[22.845347] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/package_run_dependencies/ultrasonic_control\n'}
+[22.845426] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/parent_prefix_path/ultrasonic_control\n'}
+[22.845546] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/ament_prefix_path.sh\n'}
+[22.845685] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/ament_prefix_path.dsv\n'}
+[22.845896] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/path.sh\n'}
+[22.846061] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/path.dsv\n'}
+[22.846215] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.bash\n'}
+[22.846386] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.sh\n'}
+[22.846558] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.zsh\n'}
+[22.846714] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.dsv\n'}
+[22.846869] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/package.dsv\n'}
+[22.847118] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/packages/ultrasonic_control\n'}
+[22.847323] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/cmake/ultrasonic_controlConfig.cmake\n'}
+[22.847456] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/cmake/ultrasonic_controlConfig-version.cmake\n'}
+[22.847611] (ultrasonic_control) StdoutLine: {'line': b'-- Installing: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/package.xml\n'}
+[22.850778] (ultrasonic_control) CommandEnded: {'returncode': 0}
+[22.909167] (-) TimerEvent: {}
+[22.952295] (ultrasonic_control) JobEnded: {'identifier': 'ultrasonic_control', 'rc': 0}
+[22.953957] (-) EventReactorShutdown: {}

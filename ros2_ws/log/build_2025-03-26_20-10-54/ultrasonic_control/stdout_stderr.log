@@ -1,0 +1,31 @@
+[35m[1mConsolidate compiler generated dependencies of target ultrasonic_control_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o[0m
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K In constructor ‘[01m[Kultrasonic_control::UltrasonicControlNode::UltrasonicControlNode(const rclcpp::NodeOptions&)[m[K’:
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:54:5:[m[K [01;31m[Kerror: [m[K‘[01m[Ksub_mode_[m[K’ was not declared in this scope
+   54 |     [01;31m[Ksub_mode_[m[K = this->create_subs
+      |     [01;31m[K^~~~~~~~~[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:54:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass ultrasonic_control::UltrasonicControlNode[m[K’ has no member named ‘[01m[Kcreate_subs[m[K’; did you mean ‘[01m[Kcreate_sub_node[m[K’?
+   54 |     sub_mode_ = this->[01;31m[Kcreate_subs[m[K
+      |                       [01;31m[K^~~~~~~~~~~[m[K
+      |                       [32m[Kcreate_sub_node[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K At global scope:
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:81:70:[m[K [01;31m[Kerror: [m[K‘[01m[KUint64[m[K’ in namespace ‘[01m[Kstd_msgs::msg[m[K’ does not name a type
+   81 | void UltrasonicControlNode::robot_mode_callback(const std_msgs::msg::[01;31m[KUint64[m[K::SharedPtr msg) {
+      |                                                                      [01;31m[K^~~~~~[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:81:88:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kmsg[m[K’
+   81 | void UltrasonicControlNode::robot_mode_callback(const std_msgs::msg::Uint64::SharedPtr [01;31m[Kmsg[m[K) {
+      |                                                                                        [01;31m[K^~~[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:81:87:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kmsg[m[K’
+   81 | void UltrasonicControlNode::robot_mode_callback[34m[K([m[Kconst std_msgs::msg::Uint64::SharedPtr[01;31m[K [m[K[32m[Kmsg[m[K) {
+      |                                                [34m[K~[m[K                                      [01;31m[K^[m[K[32m[K~~~[m[K
+      |                                                                                       [32m[K)[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:81:88:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kmsg[m[K’
+   81 | void UltrasonicControlNode::robot_mode_callback(const std_msgs::msg::Uint64::SharedPtr [01;31m[Kmsg[m[K) {
+      |                                                                                        [01;31m[K^~~[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K In member function ‘[01m[Kvoid ultrasonic_control::UltrasonicControlNode::update_motion()[m[K’:
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:87:9:[m[K [01;31m[Kerror: [m[K‘[01m[Krobot_mode[m[K’ was not declared in this scope
+   87 |     if ([01;31m[Krobot_mode[m[K == 4 || robot_mode == 5) {
+      |         [01;31m[K^~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ultrasonic_control_node.dir/build.make:76: CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ultrasonic_control_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

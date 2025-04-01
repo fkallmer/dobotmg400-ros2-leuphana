@@ -1,0 +1,3 @@
+[submodule "ros2_ws/src/MG400_ROS2"]
+	path = ros2_ws/src/MG400_ROS2
+	url = https://github.com/HarvestX/MG400_ROS2

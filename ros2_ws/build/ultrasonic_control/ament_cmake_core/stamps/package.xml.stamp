@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ultrasonic_control</name>
+  <version>0.1.0</version>
+  <description>ROS2 Package for controlling a robot based on ultrasonic sensor data</description>
+  <maintainer email="your.email@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>mg400_msgs</depend>
+  <depend>mqtt_bridge</depend>
+  <depend>std_srvs</depend>
+
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

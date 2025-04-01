@@ -1,0 +1,11 @@
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K In member function ‘[01m[Kvoid ultrasonic_control::UltrasonicControlNode::enable_robot()[m[K’:
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:122:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct rclcpp::Client<mg400_msgs::srv::EnableRobot>::FutureAndRequestId[m[K’ has no member named ‘[01m[Kthen[m[K’
+  122 |     future.[01;31m[Kthen[m[K([this](auto f) {
+      |            [01;31m[K^~~~[m[K
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:[m[K In member function ‘[01m[Kvoid ultrasonic_control::UltrasonicControlNode::disable_robot()[m[K’:
+[01m[K/root/ros2_ws/src/ultrasonic_control/src/ultrasonic_control_node.cpp:142:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct rclcpp::Client<mg400_msgs::srv::DisableRobot>::FutureAndRequestId[m[K’ has no member named ‘[01m[Kthen[m[K’
+  142 |     future.[01;31m[Kthen[m[K([this](auto f) {
+      |            [01;31m[K^~~~[m[K
+gmake[2]: *** [CMakeFiles/ultrasonic_control_node.dir/build.make:76: CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ultrasonic_control_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

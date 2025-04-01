@@ -1,0 +1,95 @@
+[0.026s] Invoking command in '/root/ros2_ws/build/mg400_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /root/ros2_ws/src/MG400_ROS2/mg400_interface -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/mg400_interface
+[0.110s] -- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.390s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.643s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.644s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.654s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.672s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.694s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.966s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.969s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.159s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.482s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.503s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.529s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.537s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[2.556s] -- Found gmock sources under '/opt/ros/humble/src/gmock_vendor': C++ tests using 'Google Mock' will be built
+[2.649s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.650s] -- Configured cppcheck include dirs: /root/ros2_ws/src/MG400_ROS2/mg400_interface/include
+[2.650s] -- Configured cppcheck exclude dirs and/or files: 
+[2.652s] -- Added test 'lint_cmake' to check CMake code style
+[2.657s] -- Added test 'uncrustify' to check C / C++ code style
+[2.657s] -- Configured uncrustify additional arguments: 
+[2.657s] -- Added test 'xmllint' to check XML markup files
+[2.674s] -- Configuring done
+[2.795s] -- Generating done
+[2.839s] -- Build files have been written to: /root/ros2_ws/build/mg400_interface
+[2.863s] Invoked command in '/root/ros2_ws/build/mg400_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /root/ros2_ws/src/MG400_ROS2/mg400_interface -DCMAKE_INSTALL_PREFIX=/root/ros2_ws/install/mg400_interface
+[2.865s] Invoking command in '/root/ros2_ws/build/mg400_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /root/ros2_ws/build/mg400_interface -- -j4 -l4
+[2.951s] [35m[1mConsolidate compiler generated dependencies of target gtest[0m
+[2.956s] [35m[1mConsolidate compiler generated dependencies of target gmock_main[0m
+[2.959s] [35m[1mConsolidate compiler generated dependencies of target gtest_main[0m
+[2.982s] [  5%] Built target gtest
+[2.984s] [ 11%] Built target gtest_main
+[3.011s] [35m[1mConsolidate compiler generated dependencies of target gmock[0m
+[3.028s] [35m[1mConsolidate compiler generated dependencies of target mg400_interface[0m
+[3.030s] [ 17%] Built target gmock_main
+[3.056s] [ 26%] Built target gmock
+[3.117s] [ 58%] Built target mg400_interface
+[3.144s] [35m[1mConsolidate compiler generated dependencies of target test_error_msg_generator[0m
+[3.148s] [35m[1mConsolidate compiler generated dependencies of target test_joint_handler[0m
+[3.148s] [35m[1mConsolidate compiler generated dependencies of target commander_check[0m
+[3.154s] [35m[1mConsolidate compiler generated dependencies of target show_realtime_data[0m
+[3.191s] [ 70%] Built target test_error_msg_generator
+[3.191s] [ 70%] Built target test_joint_handler
+[3.204s] [ 76%] Built target commander_check
+[3.226s] [35m[1mConsolidate compiler generated dependencies of target test_motion_commander[0m
+[3.229s] [35m[1mConsolidate compiler generated dependencies of target test_response_parser[0m
+[3.244s] [ 82%] Built target show_realtime_data
+[3.245s] [35m[1mConsolidate compiler generated dependencies of target test_dashboard_commander[0m
+[3.263s] [ 88%] Built target test_response_parser
+[3.275s] [ 94%] Built target test_motion_commander
+[3.286s] [100%] Built target test_dashboard_commander
+[3.311s] Invoked command in '/root/ros2_ws/build/mg400_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /root/ros2_ws/build/mg400_interface -- -j4 -l4
+[3.316s] Invoking command in '/root/ros2_ws/build/mg400_interface': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /root/ros2_ws/build/mg400_interface
+[3.331s] -- Install configuration: ""
+[3.331s] -- Execute custom install script
+[3.332s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/command_utils.hpp
+[3.332s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/commander/dashboard_commander.hpp
+[3.332s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/commander/motion_commander.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/commander/response_parser.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/error_msg_generator.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/joint_handler.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/mg400_interface.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/tcp_interface/dashboard_tcp_interface.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/tcp_interface/motion_tcp_interface.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/tcp_interface/realtime_data.hpp
+[3.333s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/tcp_interface/realtime_feedback_tcp_interface.hpp
+[3.334s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/include/mg400_interface/tcp_interface/tcp_socket_handler.hpp
+[3.334s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/library_path.sh
+[3.334s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/library_path.dsv
+[3.334s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/lib/libmg400_interface.a
+[3.335s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/lib/mg400_interface/show_realtime_data
+[3.335s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/lib/mg400_interface/commander_check
+[3.335s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/resources/README.md
+[3.335s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/resources/alarm_controller.json
+[3.335s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/resources/alarm_servo.json
+[3.336s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/ament_index/resource_index/package_run_dependencies/mg400_interface
+[3.336s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/ament_index/resource_index/parent_prefix_path/mg400_interface
+[3.336s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/ament_prefix_path.sh
+[3.336s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/ament_prefix_path.dsv
+[3.336s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/path.sh
+[3.337s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/environment/path.dsv
+[3.337s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/local_setup.bash
+[3.337s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/local_setup.sh
+[3.337s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/local_setup.zsh
+[3.337s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/local_setup.dsv
+[3.337s] -- Symlinking: /root/ros2_ws/install/mg400_interface/share/mg400_interface/package.dsv
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/ament_index/resource_index/packages/mg400_interface
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/cmake/mg400_interfaceConfig.cmake
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/cmake/mg400_interfaceConfig-version.cmake
+[3.357s] -- Up-to-date symlink: /root/ros2_ws/install/mg400_interface/share/mg400_interface/package.xml
+[3.361s] Invoked command in '/root/ros2_ws/build/mg400_interface' returned '0': CMAKE_PREFIX_PATH=/root/ros2_ws/install/mg400_msgs:/root/ros2_ws/install/mg400_common:/root/ros2_ws/install/ultrasonic_control:/root/ros2_ws/install/sllidar_ros2:/root/ros2_ws/install/p9n:/root/ros2_ws/install/p9n_test:/root/ros2_ws/install/p9n_node:/root/ros2_ws/install/p9n_example:/root/ros2_ws/install/mg400:/root/ros2_ws/install/mg400_joy:/root/ros2_ws/install/p9n_interface:/root/ros2_ws/install/mqtt_bridge:/root/ros2_ws/install/mg400_rviz_plugin:/root/ros2_ws/install/mg400_node:/root/ros2_ws/install/mg400_plugin:/root/ros2_ws/install/mg400_plugin_base:/root/ros2_ws/install/mg400_interface:/root/ros2_ws/install/mg400_description:/root/ros2_ws/install/p9n_bringup:/root/ros2_ws/install/mg400_bringup:/root/ros2_ws/install/integration_package:/opt/ros/humble LD_LIBRARY_PATH=/root/ros2_ws/install/mg400_msgs/lib:/root/ros2_ws/install/mg400_common/lib:/root/ros2_ws/install/p9n_test/lib:/root/ros2_ws/install/p9n_node/lib:/root/ros2_ws/install/p9n_example/lib:/root/ros2_ws/install/mg400_joy/lib:/root/ros2_ws/install/p9n_interface/lib:/root/ros2_ws/install/mg400_rviz_plugin/lib:/root/ros2_ws/install/mg400_node/lib:/root/ros2_ws/install/mg400_plugin/lib:/root/ros2_ws/install/mg400_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /root/ros2_ws/build/mg400_interface

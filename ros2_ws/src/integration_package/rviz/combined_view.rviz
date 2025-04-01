@@ -1,0 +1,197 @@
+Panels:
+  # Übernahme der mg400-spezifischen Panels + Standard-RViz-Panels
+  - Class: rviz_common/Displays
+    Help Height: 85
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 490
+
+  - Class: rviz_common/Selection
+    Name: Selection
+
+  - Class: rviz_common/Tool Properties
+    Expanded:
+      - /2D Goal Pose1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+
+  # MG400-spezifisches Panel
+  - Class: mg400_rviz_plugin/Mg400Controller
+    Name: Mg400Controller
+
+Visualization Manager:
+  Class: ""
+  Enabled: true
+
+  Global Options:
+    # Du kannst hier den 'Fixed Frame' nach Bedarf anpassen.
+    # Zum Beispiel 'arm_frame_link_offset' oder 'laser'
+    # => Voraussetzung: Du hast einen TF zwischen mg400 und laser.
+    Fixed Frame: mg400_base_link
+    Frame Rate: 30
+    Background Color: 220; 220; 220  # Aus MG400-Config übernommen
+
+  Name: root
+
+  Displays:
+    # ---------------------------------------------------------
+    # 1) Grid (aus MG400-Config)
+    # ---------------------------------------------------------
+    - Name: Grid
+      Class: rviz_default_plugins/Grid
+      Enabled: true
+      Cell Size: 1
+      Color: 160; 160; 164
+      Alpha: 0.5
+      Line Style:
+        Value: Lines
+        Line Width: 0.03
+      Normal Cell Count: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+
+    # ---------------------------------------------------------
+    # 2) LaserScan (aus sllidar-Config)
+    # ---------------------------------------------------------
+    - Name: LaserScan
+      Class: rviz_default_plugins/LaserScan
+      Enabled: true
+      Topic:
+        Value: /scan
+        Depth: 5
+        Reliability Policy: System Default
+        Durability Policy: Volatile
+        History Policy: Keep Last
+      Color Transformer: Intensity
+      Autocompute Intensity Bounds: true
+      Size (Pixels): 2
+      Style: Flat Squares
+      Use rainbow: true
+      Position Transformer: XYZ
+      Decay Time: 0
+      Axis: Z
+      # Hier ggf. anpassen:
+      # - "Reference Frame" wird nicht separat eingestellt, da wir
+      #   'Use Fixed Frame' = true haben.
+      Use Fixed Frame: true
+
+    # ---------------------------------------------------------
+    # 3) RobotModel (aus MG400-Config)
+    # ---------------------------------------------------------
+    - Name: RobotModel
+      Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /mg400/robot_description
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+      Collision Enabled: false
+      Visual Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Link Details: false
+        Expand Joint Details: false
+        Expand Tree: false
+      TF Prefix: ""
+      Update Interval: 0
+
+  Tools:
+    # Standard-Tools (ggf. kombiniert aus beiden Configs)
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
+    - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
+      Topic:
+        Value: /initialpose
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+    - Class: rviz_default_plugins/PublishPoint
+      Single click: true
+      Topic:
+        Value: /clicked_point
+        Depth: 5
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Value: Orbit (rviz)
+      Distance: 1.5
+      Pitch: 0.6
+      Yaw: 1.5
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0.75
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05
+      Invert Z Axis: false
+      Near Clip Distance: 0.01
+      Enable Stereo Rendering:
+        Value: false
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+    Saved: ~  # ggf. alte Camera-Views hier rein
+
+Window Geometry:
+  # Du kannst hier die Fensterparameter anpassen oder übernehmen:
+  X: 74
+  Y: 34
+  Width: 1920
+  Height: 1015
+  Displays:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Views:
+    collapsed: false
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Mg400Controller:
+    collapsed: false
+  QMainWindow State: >-
+    000000ff00000000fd0000000400000000000002430000038ffc020000000bfb... 
+    # ... (gekürzter State-String)

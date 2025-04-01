@@ -1,0 +1,7 @@
+[01m[K/root/ros2_ws/src/mqtt_bridge/src/mqtt_node.cpp:3:10:[m[K [01;31m[Kfatal error: [m[Kstd_srvs/srv/trigger.hpp: No such file or directory
+    3 | #include [01;31m[K<std_srvs/srv/trigger.hpp>[m[K  // For Trigger service
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mqtt_bridge.dir/build.make:76: CMakeFiles/mqtt_bridge.dir/src/mqtt_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/mqtt_bridge.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

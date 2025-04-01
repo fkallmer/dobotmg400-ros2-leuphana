@@ -1,0 +1,27 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/ultrasonic_control_node.dir/src/ultrasonic_control_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable ultrasonic_control_node[0m
+[100%] Built target ultrasonic_control_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/lib/ultrasonic_control/ultrasonic_control_node
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/include/ultrasonic_control/ultrasonic_control_node.hpp
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/bringup.launch.py
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/COLCON_IGNORE
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/latest/logger_all.log
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/latest_list/logger_all.log
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/log/list_2025-03-20_17-25-56/logger_all.log
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/package_run_dependencies/ultrasonic_control
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/parent_prefix_path/ultrasonic_control
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/ament_prefix_path.sh
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/ament_prefix_path.dsv
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/path.sh
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/environment/path.dsv
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.bash
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.sh
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.zsh
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/local_setup.dsv
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/package.dsv
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ament_index/resource_index/packages/ultrasonic_control
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/cmake/ultrasonic_controlConfig.cmake
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/cmake/ultrasonic_controlConfig-version.cmake
+-- Symlinking: /root/ros2_ws/install/ultrasonic_control/share/ultrasonic_control/package.xml
