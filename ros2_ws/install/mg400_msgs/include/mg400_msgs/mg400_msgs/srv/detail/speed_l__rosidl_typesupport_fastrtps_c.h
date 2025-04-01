@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mg400_msgs/rosidl_typesupport_fastrtps_c/mg400_msgs/srv/detail/speed_l__rosidl_typesupport_fastrtps_c.h

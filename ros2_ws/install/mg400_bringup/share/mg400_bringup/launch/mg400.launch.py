@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mg400_bringup/launch/mg400.launch.py

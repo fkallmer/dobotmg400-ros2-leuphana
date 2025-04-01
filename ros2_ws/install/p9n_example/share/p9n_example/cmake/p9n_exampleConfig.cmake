@@ -1,1 +1,0 @@
-/root/ros2_ws/build/p9n_example/ament_cmake_core/p9n_exampleConfig.cmake

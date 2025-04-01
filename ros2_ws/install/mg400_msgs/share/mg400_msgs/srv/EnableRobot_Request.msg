@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mg400_msgs/rosidl_cmake/srv/EnableRobot_Request.msg

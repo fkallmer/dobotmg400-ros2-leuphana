@@ -1,1 +1,0 @@
-/root/ros2_ws/src/PlayStation-JoyInterface-ROS2/p9n_test/launch/test.launch.py

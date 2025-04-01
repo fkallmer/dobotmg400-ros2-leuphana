@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mg400_plugin_base/ament_cmake_environment_hooks/local_setup.sh

@@ -1,1 +1,0 @@
-/root/ros2_ws/src/MG400_ROS2/mg400_plugin/include/mg400_plugin/motion_api/mov_j.hpp

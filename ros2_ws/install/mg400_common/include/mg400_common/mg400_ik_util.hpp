@@ -1,1 +1,0 @@
-/root/ros2_ws/src/MG400_ROS2/mg400_common/include/mg400_common/mg400_ik_util.hpp

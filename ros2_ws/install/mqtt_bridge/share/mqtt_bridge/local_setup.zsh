@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mqtt_bridge/ament_cmake_environment_hooks/local_setup.zsh

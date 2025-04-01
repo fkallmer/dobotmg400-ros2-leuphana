@@ -1,1 +1,0 @@
-/root/ros2_ws/build/mg400_msgs/rosidl_typesupport_fastrtps_c/mg400_msgs/msg/detail/error_id__rosidl_typesupport_fastrtps_c.h
