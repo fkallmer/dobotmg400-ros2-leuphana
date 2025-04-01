@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile  # Passe den Dateinamen ggf. an
-    network_mode: host./s
+    network_mode: host
     environment:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1

@@ -1,0 +1,7 @@
+# Ignoriere den Ordner "temp"
+ros2_ws/build/
+# Ignoriere den Ordner "install"
+ros2_ws/install/
+# Ignoriere den Ordner "log"
+ros2_ws/log/
+

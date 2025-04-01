@@ -9,12 +9,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(std_srvs REQUIRED)      # Hinzugefügt: std_srvs
 find_package(PahoMqttCpp REQUIRED)
 
 # Create executable
 add_executable(mqtt_bridge src/mqtt_node.cpp)
-ament_target_dependencies(mqtt_bridge rclcpp std_msgs std_srvs PahoMqttCpp)
+ament_target_dependencies(mqtt_bridge rclcpp std_msgs std_srvs sensor_msgs PahoMqttCpp)
 
 target_link_libraries(mqtt_bridge PahoMqttCpp::paho-mqttpp3)
 

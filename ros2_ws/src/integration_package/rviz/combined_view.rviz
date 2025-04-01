@@ -175,11 +175,6 @@ Visualization Manager:
     Saved: ~  # ggf. alte Camera-Views hier rein
 
 Window Geometry:
-  # Du kannst hier die Fensterparameter anpassen oder übernehmen:
-  X: 74
-  Y: 34
-  Width: 1920
-  Height: 1015
   Displays:
     collapsed: false
   Tool Properties:
