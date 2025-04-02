@@ -576,5 +576,6 @@
           effort="0"
           velocity="0" />
     </joint>
+    
   </xacro:macro>
 </robot>

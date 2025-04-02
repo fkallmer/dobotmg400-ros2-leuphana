@@ -69,56 +69,56 @@ public:
     // MQTT callback für ankommende Nachrichten
     // --------------------------------------------------
     void message_arrived(mqtt::const_message_ptr msg) override
-    {
-        try {
-            std::string payload = msg->to_string();
-            if (payload.empty()) {
-                return;  // leere Nachricht ignorieren
-            }
-
-            // JSON parsen
-            json j = json::parse(payload);
-
-            // Gemeinsame Range-Nachricht vorbereiten
-            sensor_msgs::msg::Range range_msg;
-            range_msg.header.stamp = this->now();
-            // z.B. "ultraschall_link" oder passend zum echten Sensor
-            range_msg.header.frame_id = "ultraschall_link";
-
-            // Typische Felder für Ultraschall
-            range_msg.radiation_type = sensor_msgs::msg::Range::ULTRASOUND;
-            // Beispielhafte Werte: bitte an deine Sensor-Spezifikationen anpassen
-            range_msg.field_of_view = 0.5f;   // ~28.6° Öffnungswinkel
-            range_msg.min_range = 0.02f;      // z.B. 2 cm
-            range_msg.max_range = 3.0f;       // z.B. 4 Meter
-
-            // Nun prüfen wir, auf welchem MQTT-Topic wir die Daten bekommen haben
-            // und setzen range_msg.range entsprechend.
-            if (msg->get_topic() == "sensor/distance/x" && j.contains("x")) {
-                range_msg.range = j["x"].get<float>();
-                pub_x_->publish(range_msg);
-
-            } else if (msg->get_topic() == "sensor/distance/y" && j.contains("y")) {
-                range_msg.range = j["y"].get<float>();
-                pub_y_->publish(range_msg);
-
-            } else if (msg->get_topic() == "sensor/distance/z" && j.contains("z")) {
-                range_msg.range = j["z"].get<float>();
-                pub_z_->publish(range_msg);
-
-            } else {
-                RCLCPP_WARN(this->get_logger(),
-                    "Empfangene MQTT-Nachricht auf %s, aber erwarteter Schlüssel fehlte.",
-                    msg->get_topic().c_str());
-            }
+{
+    try {
+        std::string payload = msg->to_string();
+        if (payload.empty()) {
+            return;  // leere Nachricht ignorieren
         }
-        catch (const json::parse_error &e) {
-            RCLCPP_ERROR(this->get_logger(), "JSON-Parsing-Fehler: %s", e.what());
-        }
-        catch (const std::exception &e) {
-            RCLCPP_ERROR(this->get_logger(), "Fehler bei der Verarbeitung der MQTT-Nachricht: %s", e.what());
+
+        // JSON parsen
+        json j = json::parse(payload);
+
+        // Gemeinsame Range-Nachricht vorbereiten
+        sensor_msgs::msg::Range range_msg;
+        range_msg.header.stamp = this->now();
+
+        // Typische Felder für Ultraschall
+        range_msg.radiation_type = sensor_msgs::msg::Range::ULTRASOUND;
+        range_msg.field_of_view = 0.5f;
+        range_msg.min_range = 0.02f;
+        range_msg.max_range = 4.0f;
+
+        // MQTT-Topic zuordnen und Frame + Wert setzen
+        if (msg->get_topic() == "sensor/distance/y" && j.contains("y")) {
+            range_msg.range = j["y"].get<float>() * 0.01f;  // cm -> m
+            range_msg.header.frame_id = "ultrasonic_x";
+            pub_x_->publish(range_msg);
+
+        } else if (msg->get_topic() == "sensor/distance/x" && j.contains("x")) {
+            range_msg.range = j["x"].get<float>() * 0.01f;
+            range_msg.header.frame_id = "ultrasonic_y";
+            pub_y_->publish(range_msg);
+
+        } else if (msg->get_topic() == "sensor/distance/z" && j.contains("z")) {
+            range_msg.range = j["z"].get<float>() * 0.01f;
+            range_msg.header.frame_id = "ultrasonic_z";
+            pub_z_->publish(range_msg);
+
+        } else {
+            RCLCPP_WARN(this->get_logger(),
+                "Empfangene MQTT-Nachricht auf %s, aber erwarteter Schlüssel fehlte.",
+                msg->get_topic().c_str());
         }
     }
+    catch (const json::parse_error &e) {
+        RCLCPP_ERROR(this->get_logger(), "JSON-Parsing-Fehler: %s", e.what());
+    }
+    catch (const std::exception &e) {
+        RCLCPP_ERROR(this->get_logger(), "Fehler bei der Verarbeitung der MQTT-Nachricht: %s", e.what());
+    }
+}
+
 
 private:
     // --------------------------------------------------

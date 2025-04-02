@@ -14,13 +14,13 @@ find_package(std_srvs REQUIRED)      # Hinzugefügt: std_srvs
 find_package(PahoMqttCpp REQUIRED)
 
 # Create executable
-add_executable(mqtt_bridge src/mqtt_node.cpp)
-ament_target_dependencies(mqtt_bridge rclcpp std_msgs std_srvs sensor_msgs PahoMqttCpp)
+add_executable(mqtt_node src/mqtt_node.cpp)
+ament_target_dependencies(mqtt_node rclcpp std_msgs std_srvs sensor_msgs PahoMqttCpp)
 
-target_link_libraries(mqtt_bridge PahoMqttCpp::paho-mqttpp3)
+target_link_libraries(mqtt_node PahoMqttCpp::paho-mqttpp3)
 
 install(TARGETS
-  mqtt_bridge
+  mqtt_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
