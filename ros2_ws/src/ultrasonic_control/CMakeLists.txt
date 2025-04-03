@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
+cmake_policy(SET CMP0009 NEW)
 project(ultrasonic_control)
 
 # ROS 2 Abhängigkeiten finden
@@ -8,6 +9,7 @@ find_package(std_msgs REQUIRED)
 find_package(mg400_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(mqtt_bridge REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 # Include-Verzeichnis hinzufügen
 include_directories(include)
@@ -22,6 +24,7 @@ ament_target_dependencies(ultrasonic_control_node
   mg400_msgs
   std_srvs
   mqtt_bridge
+  sensor_msgs
 )
 
 # Installation des ausführbaren Programms

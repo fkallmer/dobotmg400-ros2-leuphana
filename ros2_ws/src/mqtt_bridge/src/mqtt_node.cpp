@@ -90,13 +90,13 @@ public:
         range_msg.max_range = 4.0f;
 
         // MQTT-Topic zuordnen und Frame + Wert setzen
-        if (msg->get_topic() == "sensor/distance/y" && j.contains("y")) {
-            range_msg.range = j["y"].get<float>() * 0.01f;  // cm -> m
+        if (msg->get_topic() == "sensor/distance/x" && j.contains("x")) {
+            range_msg.range = j["x"].get<float>() * 0.01f;  // cm -> m
             range_msg.header.frame_id = "ultrasonic_x";
             pub_x_->publish(range_msg);
 
-        } else if (msg->get_topic() == "sensor/distance/x" && j.contains("x")) {
-            range_msg.range = j["x"].get<float>() * 0.01f;
+        } else if (msg->get_topic() == "sensor/distance/y" && j.contains("y")) {
+            range_msg.range = j["y"].get<float>() * 0.01f;
             range_msg.header.frame_id = "ultrasonic_y";
             pub_y_->publish(range_msg);
 

@@ -1,166 +1,154 @@
 #include "ultrasonic_control/ultrasonic_control_node.hpp"
-#include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/float32.hpp"
-#include "mg400_msgs/srv/disable_robot.hpp"
-#include "mg400_msgs/srv/enable_robot.hpp"
-#include "mg400_msgs/srv/move_jog.hpp"
-#include "std_srvs/srv/trigger.hpp"
-#include "mg400_msgs/msg/robot_mode.hpp"
+
+using namespace std::chrono_literals;
 
 namespace ultrasonic_control
 {
 
 UltrasonicControlNode::UltrasonicControlNode(const rclcpp::NodeOptions & node_options)
-: Node("ultrasonic_control_node", node_options)
+: Node("ultrasonic_control_node", node_options), is_robot_enabled_(false), last_robot_mode_(0), last_jog_mode_(""),
+  last_enable_call_(this->get_clock()->now()), last_disable_call_(this->get_clock()->now()), active_axis_("")
 {
-    move_jog_client_ = this->create_client<mg400_msgs::srv::MoveJog>("/mg400/move_jog");
-    enable_robot_client_ = this->create_client<mg400_msgs::srv::EnableRobot>("/mg400/enable_robot");
-    disable_robot_client_ = this->create_client<mg400_msgs::srv::DisableRobot>("/mg400/disable_robot");
+  this->callback_group_ = this->create_callback_group(
+    rclcpp::CallbackGroupType::MutuallyExclusive, false);
+  this->callback_group_executor_.add_callback_group(
+    this->callback_group_, this->get_node_base_interface());
 
-    sub_x_ = this->create_subscription<std_msgs::msg::Float32>(
-        "/sensor/distance/x", 10,
-        std::bind(&UltrasonicControlNode::distance_callback_x, this, std::placeholders::_1));
+  enable_robot_clnt_ = this->create_client<mg400_msgs::srv::EnableRobot>(
+    "/mg400/enable_robot", rmw_qos_profile_default, callback_group_);
+  disable_robot_clnt_ = this->create_client<mg400_msgs::srv::DisableRobot>(
+    "/mg400/disable_robot", rmw_qos_profile_default, callback_group_);
+  move_jog_clnt_ = this->create_client<mg400_msgs::srv::MoveJog>(
+    "/mg400/move_jog", rmw_qos_profile_default, callback_group_);
 
-    sub_y_ = this->create_subscription<std_msgs::msg::Float32>(
-        "/sensor/distance/y", 10,
-        std::bind(&UltrasonicControlNode::distance_callback_y, this, std::placeholders::_1));
+  sub_x_ = create_subscription<sensor_msgs::msg::Range>(
+    "/sensor/ultrasonic/x", 10,
+    std::bind(&UltrasonicControlNode::distance_callback_x, this, std::placeholders::_1));
 
-    sub_z_ = this->create_subscription<std_msgs::msg::Float32>(
-        "/sensor/distance/z", 10,
-        std::bind(&UltrasonicControlNode::distance_callback_z, this, std::placeholders::_1));
+  sub_y_ = create_subscription<sensor_msgs::msg::Range>(
+    "/sensor/ultrasonic/y", 10,
+    std::bind(&UltrasonicControlNode::distance_callback_y, this, std::placeholders::_1));
 
-    sub_robot_mode_ = this->create_subscription<mg400_msgs::msg::RobotMode>(
-        "/mg400/robot_mode", rclcpp::SensorDataQoS().keep_last(1),
-        std::bind(&UltrasonicControlNode::robot_mode_callback, this, std::placeholders::_1));
+  rm_sub_ = create_subscription<mg400_msgs::msg::RobotMode>(
+    "/mg400/robot_mode", rclcpp::SensorDataQoS().keep_last(1),
+    std::bind(&UltrasonicControlNode::robot_mode_callback, this, std::placeholders::_1));
 
-    current_robot_mode_ = std::make_shared<mg400_msgs::msg::RobotMode>();
+  RCLCPP_INFO(this->get_logger(), "Node initialized.");
 }
 
-void UltrasonicControlNode::distance_callback_x(const std_msgs::msg::Float32::SharedPtr msg) {
-    distance_x_ = msg->data;
-    update_motion();
+std::string mode_to_string(uint64_t mode)
+{
+  switch (mode) {
+    case 1: return "INIT";
+    case 2: return "BRAKE_OPEN";
+    case 4: return "DISABLED";
+    case 5: return "ENABLE";
+    case 6: return "BACKDRIVE";
+    case 7: return "RUNNING";
+    case 8: return "RECORDING";
+    case 9: return "ERROR";
+    case 10: return "PAUSE";
+    case 11: return "JOG";
+    case 12: return "INVALID";
+    default: return "UNKNOWN";
+  }
 }
 
-void UltrasonicControlNode::distance_callback_y(const std_msgs::msg::Float32::SharedPtr msg) {
-    distance_y_ = msg->data;
-    update_motion();
-}
-
-void UltrasonicControlNode::distance_callback_z(const std_msgs::msg::Float32::SharedPtr msg) {
-    distance_z_ = msg->data;
-    update_motion();
-}
-
-void UltrasonicControlNode::robot_mode_callback(const mg400_msgs::msg::RobotMode::SharedPtr msg) {
+void UltrasonicControlNode::robot_mode_callback(const mg400_msgs::msg::RobotMode::SharedPtr msg)
+{
+  if (!current_robot_mode_ || current_robot_mode_->robot_mode != msg->robot_mode) {
     current_robot_mode_ = msg;
+    RCLCPP_INFO(this->get_logger(), "Robot mode changed: %s (%lu)", mode_to_string(msg->robot_mode).c_str(), msg->robot_mode);
+  }
 }
 
-void UltrasonicControlNode::update_motion() {
-    using RobotMode = mg400_msgs::msg::RobotMode;
-
-    const auto & mode = current_robot_mode_->robot_mode;
-    if (mode != RobotMode::ENABLE && mode != RobotMode::DISABLED) {
-        return;
-    }
-
-    if (distance_x_ < 10.0 || distance_y_ < 10.0 || distance_z_ < 10.0) {
-        if (mode != RobotMode::ENABLE && !enable_call_in_progress_) {
-            enable_robot();
-        }
-    } else if (distance_x_ > 20.0 && distance_y_ > 20.0 && distance_z_ > 20.0) {
-        if (mode != RobotMode::DISABLED && !disable_call_in_progress_) {
-            disable_robot();
-        }
-        return;
-    }
-
-    if (mode != RobotMode::ENABLE && mode != RobotMode::JOG && mode != RobotMode::RUNNING) {
-        RCLCPP_WARN(this->get_logger(), "Current state is not jog acceptable");
-        return;
-    }
-
-    std::string jog_mode = "";
-    if (distance_x_ < 10.0) {
-        jog_mode = "X_NEGATIVE";
-    } else if (distance_x_ > 10.0) {
-        jog_mode = "X_POSITIVE";
-    } else if (distance_y_ < 10.0) {
-        jog_mode = "Y_NEGATIVE";
-    } else if (distance_y_ > 10.0) {
-        jog_mode = "Y_POSITIVE";
-    } else if (distance_z_ < 20.0) {
-        jog_mode = "Z_NEGATIVE";
-    } else if (distance_z_ > 10.0) {
-        jog_mode = "Z_POSITIVE";
-    }
-
-    callMoveJog(jog_mode);
+void UltrasonicControlNode::distance_callback_x(const sensor_msgs::msg::Range::SharedPtr msg)
+{
+  distance_x_ = msg->range;
+  if (active_axis_.empty() || active_axis_ == "x") {
+    evaluate_and_act("x");
+  }
 }
 
-void UltrasonicControlNode::callMoveJog(const std::string & jog_mode) {
-    if (!move_jog_client_->wait_for_service(std::chrono::seconds(1))) {
-        RCLCPP_ERROR(this->get_logger(), "MoveJog service not available");
-        return;
-    }
-
-    auto req = std::make_shared<mg400_msgs::srv::MoveJog::Request>();
-    req->jog.jog_mode = jog_mode;
-
-    auto future = move_jog_client_->async_send_request(req);
-    rclcpp::spin_until_future_complete(this->get_node_base_interface(), future);
+void UltrasonicControlNode::distance_callback_y(const sensor_msgs::msg::Range::SharedPtr msg)
+{
+  distance_y_ = msg->range;
+  if (active_axis_.empty() || active_axis_ == "y") {
+    evaluate_and_act("y");
+  }
 }
 
-void UltrasonicControlNode::enable_robot() {
-    if (!enable_robot_client_->wait_for_service(std::chrono::seconds(1))) {
-        RCLCPP_ERROR(this->get_logger(), "EnableRobot service not available");
-        return;
-    }
+void UltrasonicControlNode::evaluate_and_act(const std::string & axis)
+{
+  auto now = get_clock()->now();
+  float dist = (axis == "x") ? distance_x_ : distance_y_;
+  auto mode = current_robot_mode_ ? current_robot_mode_->robot_mode : 0;
 
-    auto req = std::make_shared<mg400_msgs::srv::EnableRobot::Request>();
-    enable_call_in_progress_ = true;
-    auto future = enable_robot_client_->async_send_request(req);
-
-    if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), future) == rclcpp::FutureReturnCode::SUCCESS) {
-        const auto & result = future.get();
-        if (result->result) {
-            RCLCPP_INFO(this->get_logger(), "Aktivierung erfolgreich");
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Aktivierung fehlgeschlagen, error_id: %d", result->error_id);
-        }
-    } else {
-        RCLCPP_ERROR(this->get_logger(), "Aktivierungsservice fehlgeschlagen");
+  if (dist > 0.20f) {
+    if (last_jog_mode_ != "") {
+      call_move_jog("");
     }
-    enable_call_in_progress_ = false;
+    if (mode == 5 && (now - last_disable_call_).seconds() > 2.0) {
+      call_disable_robot();
+      active_axis_ = "";
+    }
+    return;
+  }
+
+  if (dist >= 0.08f && dist <= 0.12f) {
+    if (mode == 4 && (now - last_enable_call_).seconds() > 2.0) {
+      active_axis_ = axis;
+      call_enable_robot();
+    }
+    if (last_jog_mode_ != "") {
+      call_move_jog("");
+    }
+    return;
+  }
+
+  if (mode == 5 && active_axis_ == axis) {
+    if (dist < 0.08f) {
+      call_move_jog((axis == "x") ? "X-" : "j1+");
+    } else if (dist > 0.12f) {
+      call_move_jog((axis == "x") ? "X+" : "j1-");
+    }
+  }
 }
 
-void UltrasonicControlNode::disable_robot() {
-    if (!disable_robot_client_->wait_for_service(std::chrono::seconds(1))) {
-        RCLCPP_ERROR(this->get_logger(), "DisableRobot service not available");
-        return;
-    }
+void UltrasonicControlNode::call_enable_robot()
+{
+  auto request = std::make_shared<mg400_msgs::srv::EnableRobot::Request>();
+  enable_robot_clnt_->async_send_request(request);
+  last_enable_call_ = get_clock()->now();
+  RCLCPP_INFO(this->get_logger(), "Enable robot requested.");
+}
 
-    auto req = std::make_shared<mg400_msgs::srv::DisableRobot::Request>();
-    disable_call_in_progress_ = true;
-    auto future = disable_robot_client_->async_send_request(req);
+void UltrasonicControlNode::call_disable_robot()
+{
+  auto request = std::make_shared<mg400_msgs::srv::DisableRobot::Request>();
+  disable_robot_clnt_->async_send_request(request);
+  last_disable_call_ = get_clock()->now();
+  RCLCPP_INFO(this->get_logger(), "Disable robot requested.");
+}
 
-    if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), future) == rclcpp::FutureReturnCode::SUCCESS) {
-        const auto & result = future.get();
-        if (result->result) {
-            RCLCPP_INFO(this->get_logger(), "Deaktivierung erfolgreich");
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "Deaktivierung fehlgeschlagen, error_id: %d", result->error_id);
-        }
-    } else {
-        RCLCPP_ERROR(this->get_logger(), "Deaktivierungsservice fehlgeschlagen");
-    }
-    disable_call_in_progress_ = false;
+void UltrasonicControlNode::call_move_jog(const std::string & jog_mode)
+{
+  if (jog_mode == last_jog_mode_) return;
+
+  auto request = std::make_shared<mg400_msgs::srv::MoveJog::Request>();
+  request->jog.jog_mode = jog_mode;
+  move_jog_clnt_->async_send_request(request);
+  last_jog_mode_ = jog_mode;
+  RCLCPP_INFO(this->get_logger(), "Jog command: %s", jog_mode.c_str());
 }
 
 }  // namespace ultrasonic_control
 
-int main(int argc, char **argv) {
-    rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<ultrasonic_control::UltrasonicControlNode>());
-    rclcpp::shutdown();
-    return 0;
+int main(int argc, char ** argv)
+{
+  rclcpp::init(argc, argv);
+  auto node = std::make_shared<ultrasonic_control::UltrasonicControlNode>(rclcpp::NodeOptions{});
+  rclcpp::spin(node);
+  rclcpp::shutdown();
+  return 0;
 }
