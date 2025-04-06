@@ -1,5 +1,13 @@
-"""Launch the main system integrating MG400 and SLLiDAR (ROS 2 Humble)."""
+"""
+© 2025 Falk-Richard Kallmer, Leuphana University Lüneburg
+MIT License – see LICENSE file for details
+Contact: falk-richard.kallmer@stud.leuphana.de
 
+Launches the main system for integrating MG400 and SLLiDAR (ROS 2 Humble) and visualization in RViz.
+This script includes configurations for the MG400 robot, the SLLiDAR LiDAR, ultrasonic sensors, and MQTT communication.
+"""
+
+# Import necessary modules and libraries
 import os
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -15,17 +23,13 @@ from launch.substitutions import (
 )
 from launch_ros.actions import Node
 
-
+# Helper function to load the robot description from a Xacro file
+# Loads the robot description from a Xacro or URDF file and returns it as a dictionary
 def _load_robot_description(
     xacro_filepath: Path, xacro_options: List[Tuple] = None
 ) -> Dict:
-    """
-    Load the robot description from a file.
-
-    If the file is a xacro file, process it with the given options.
-    Otherwise, simply read the file contents.
-    """
     if 'xacro' in str(xacro_filepath):
+        # Process Xacro file
         params = []
         if xacro_options:
             for option in xacro_options:
@@ -38,6 +42,7 @@ def _load_robot_description(
         ]
         robot_description_content = Command(command=(command + params))
     else:
+        # Fallback: Read file directly
         try:
             with open(str(xacro_filepath), 'r') as file:
                 robot_description_content = file.read()
@@ -46,13 +51,11 @@ def _load_robot_description(
 
     return {'robot_description': robot_description_content}
 
-
+# Main function to generate the launch description
+# Creates a launch description that includes all necessary nodes and configurations for integrating the MG400 robot and
+# the SLLiDAR LiDAR.
 def generate_launch_description():
-    """Generate and return the LaunchDescription for MG400 and optional SLLiDAR integration."""
-
-    # ---------------------------------------------------
-    #            MG400-Specific Launch Arguments
-    # ---------------------------------------------------
+    # Declare launch arguments
     namespace_arg = DeclareLaunchArgument(
         'namespace',
         default_value=TextSubstitution(text='mg400'),
@@ -69,13 +72,12 @@ def generate_launch_description():
         description='Set to "True" to make the MG400 workspace visible in RViz.'
     )
 
+    # MG400 robot configurations
     ns = LaunchConfiguration('namespace')
     ip_address = LaunchConfiguration('ip_address')
     workspace_visible = LaunchConfiguration('workspace_visible', default='False')
 
-    # ---------------------------------------------------
-    #            SLLiDAR-Specific Launch Arguments
-    # ---------------------------------------------------
+    # Declare launch arguments for the LiDAR
     channel_type_arg = DeclareLaunchArgument(
         'channel_type',
         default_value='serial',
@@ -94,27 +96,26 @@ def generate_launch_description():
     frame_id_arg = DeclareLaunchArgument(
         'frame_id',
         default_value='laser',
-        description='Frame ID for the LiDAR data.'
+        description='Frame ID for the LiDAR.'
     )
     inverted_arg = DeclareLaunchArgument(
         'inverted',
         default_value='false',
-        description='Invert the LiDAR scan data if needed.'
+        description='Inverts the LiDAR scan data if required.'
     )
     angle_compensate_arg = DeclareLaunchArgument(
         'angle_compensate',
         default_value='true',
-        description='Enable angle compensation for the LiDAR scan data.'
+        description='Enables angle compensation for the LiDAR scan data.'
     )
     scan_mode_arg = DeclareLaunchArgument(
         'scan_mode',
         default_value='Sensitivity',
-        description='Scan mode to be used by the LiDAR.'
+        description='Scan mode used by the LiDAR.'
     )
 
-    # ---------------------------------------------------
-    #            MG400 Control Node
-    # ---------------------------------------------------
+    # Define the MG400 node
+    # Starts the MG400 node (robot interface) with the specified parameters
     mg400_node = Node(
         package='mg400_node',
         executable='mg400_node_exec',
@@ -124,14 +125,15 @@ def generate_launch_description():
         on_exit=Shutdown()
     )
 
-    # Load the robot description (URDF) via xacro processing
+    # Load the robot description
     xacro_filepath = get_package_share_path('integration_package') / 'urdf' / 'mg400.urdf.xacro'
     robot_description = _load_robot_description(
         xacro_filepath=xacro_filepath,
         xacro_options=dict(workspace_visible=workspace_visible).items()
     )
 
-    # Robot State Publisher for broadcasting transforms
+    # Define the Robot State Publisher node
+    # Publishes the robot state based on the loaded robot description
     rsp_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -140,9 +142,7 @@ def generate_launch_description():
         parameters=[robot_description]
     )
 
-    # ---------------------------------------------------
-    #            SLLiDAR Node
-    # ---------------------------------------------------
+    # LiDAR configurations
     channel_type = LaunchConfiguration('channel_type')
     serial_port = LaunchConfiguration('serial_port')
     serial_baudrate = LaunchConfiguration('serial_baudrate')
@@ -151,6 +151,8 @@ def generate_launch_description():
     angle_compensate = LaunchConfiguration('angle_compensate')
     scan_mode = LaunchConfiguration('scan_mode')
 
+    # Define the SLLiDAR node
+    # Starts the SLLiDAR node with the specified parameters
     sllidar_node = Node(
         package='sllidar_ros2',
         executable='sllidar_node',
@@ -167,32 +169,22 @@ def generate_launch_description():
         output='screen'
     )
 
-    # ---------------------------------------------------
-    #            Static TF Transformation
-    # ---------------------------------------------------
-    # Define a fixed transformation between the robot base frame and the LiDAR frame.
-    # Adjust the translation (x, y, z in meters) and rotation (roll, pitch, yaw in radians)
-    # to match your actual hardware mounting.
-    # Note: The base frame may be named differently in your URDF (e.g., "mg400_base_link" or "arm_frame_link_offset").
+    # Define the static TF node for the LiDAR
+    # Publishes a static transformation between the robot and the LiDAR to define the LiDAR's position relative to the robot in RViz
     static_tf_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='mg400_laser_tf',
         arguments=[
-            # Translation: x, y, z (meters)
             '0.6', '-0.1', '0.05',
-            # Rotation: roll, pitch, yaw (radians)
             '3.141592', '0.0', '0.0',
-            # Parent frame: robot base frame
             'arm_frame_link_offset',
-            # Child frame: LiDAR frame (default is "laser")
             LaunchConfiguration('frame_id')
         ]
     )
 
-    # ---------------------------------------------------
-    #            RViz Visualization
-    # ---------------------------------------------------
+    # Define the RViz node
+    # Starts RViz with a predefined configuration for visualization
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -207,9 +199,8 @@ def generate_launch_description():
         ]
     )
 
-    # ---------------------------------------------------
-    #            MQTT Bridge Node
-    # ---------------------------------------------------
+    # Define the MQTT node
+    # Starts the MQTT node for communication with external systems (ESP32 and ultrasonic sensors)
     mqtt_node = Node(
         package='mqtt_bridge',
         executable='mqtt_node',
@@ -217,10 +208,8 @@ def generate_launch_description():
         output='log'
     )
 
-    # ---------------------------------------------------
-    #            Static TF Transformation Ultrasonic
-    # ---------------------------------------------------
-
+    # Define static TF nodes for ultrasonic sensors
+    # Publishes static transformations for the ultrasonic sensors to define their positions relative to the robot in RViz
     ultrasonic_tf_x = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -232,27 +221,23 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_ultrasonic_y',
-        arguments=['0', '-0.05', '-0.05', '-1.5707963', '0.0', '0.0', 'mg400_link5', 'ultrasonic_y']
+        arguments=['0', '0.05', '-0.05', '0', '0', '0', 'mg400_link5', 'ultrasonic_y']
     )
 
     ultrasonic_tf_z = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_ultrasonic_z',
-        arguments=['0', '0.05', '-0.05', '1.5707963', '0.0', '0.0', 'mg400_link5', 'ultrasonic_z']
+        arguments=['0', '0', '-0.1', '0', '0', '0', 'mg400_link5', 'ultrasonic_z']
     )
 
-    # ---------------------------------------------------
-    #            Assemble LaunchDescription
-    # ---------------------------------------------------
+    # Assemble the launch description
     ld = LaunchDescription()
 
-    # Add MG400-specific launch arguments
+    # Add launch arguments
     ld.add_action(namespace_arg)
     ld.add_action(ip_address_arg)
     ld.add_action(workspace_visible_arg)
-
-    # Add SLLiDAR-specific launch arguments
     ld.add_action(channel_type_arg)
     ld.add_action(serial_port_arg)
     ld.add_action(serial_baudrate_arg)
@@ -261,7 +246,7 @@ def generate_launch_description():
     ld.add_action(angle_compensate_arg)
     ld.add_action(scan_mode_arg)
 
-    # Add nodes to the launch description
+    # Add nodes
     ld.add_action(mg400_node)
     ld.add_action(mqtt_node)
     ld.add_action(rsp_node)
@@ -271,6 +256,5 @@ def generate_launch_description():
     ld.add_action(ultrasonic_tf_x)
     ld.add_action(ultrasonic_tf_y)
     ld.add_action(ultrasonic_tf_z)
-
 
     return ld

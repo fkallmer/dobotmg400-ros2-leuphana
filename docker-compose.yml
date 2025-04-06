@@ -1,29 +1,29 @@
-# Docker Compose file for ROS2 MG400
+# Docker Compose Datei für ROS2 Humble Full (Konfiguation für den Container)
 services:
   ros2:
-    container_name: ros2_humble_full
-    image: ros2_humble_full:latest
+    container_name: ros2_humble_full  # Name des Containers
+    image: ros2_humble_full:latest  # Verwendetes Docker-Image
     build:
-      context: .
-      dockerfile: Dockerfile  # Passe den Dateinamen ggf. an
-    network_mode: host
+      context: .  # Build-Kontext ist das aktuelle Verzeichnis
+      dockerfile: Dockerfile  # Dockerfile, das für den Build verwendet wird
+    network_mode: host  # Container verwendet das Host-Netzwerk
     environment:
-      - DISPLAY=${DISPLAY}
-      - QT_X11_NO_MITSHM=1
+      - DISPLAY=${DISPLAY}  # Ermöglicht die Anzeige von GUI-Anwendungen
+      - QT_X11_NO_MITSHM=1  # Verhindert Probleme mit X11 und Shared Memory
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ./ros2_ws:/root/ros2_ws
-      - ./entrypoint.sh:/entrypoint.sh
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # Bindet X11-Socket für GUI-Anwendungen ein
+      - ./ros2_ws:/root/ros2_ws  # Bindet das lokale Verzeichnis `ros2_ws` in den Container ein
+      - ./entrypoint.sh:/entrypoint.sh  # Bindet ein lokales Skript als Entrypoint ein
     devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
-      - "/dev/ttyUSB1:/dev/ttyUSB1"
-    privileged: true
+      - "/dev/ttyUSB0:/dev/ttyUSB0"  # Bindet ein USB-Gerät in den Container ein
+      - "/dev/ttyUSB1:/dev/ttyUSB1"  # Bindet ein weiteres USB-Gerät in den Container ein
+    privileged: true  # Erlaubt dem Container erweiterte Berechtigungen
     cap_add:
-      - SYS_ADMIN
-      - SYS_RAWIO
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
+      - SYS_ADMIN  # Fügt die SYS_ADMIN-Fähigkeit hinzu
+      - SYS_RAWIO  # Fügt die SYS_RAWIO-Fähigkeit hinzu
+    restart: unless-stopped  # Container wird automatisch neu gestartet, es sei denn, er wird gestoppt
+    stdin_open: true  # Hält stdin offen
+    tty: true  # Aktiviert ein TTY (Pseudo-Terminal) für den Container
 
 volumes:
-  ros2_ws:
+  ros2_ws:  # Definiert ein benanntes Volume für `ros2_ws`

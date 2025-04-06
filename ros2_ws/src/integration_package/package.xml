@@ -1,33 +1,37 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
+
   <name>integration_package</name>
   <version>0.0.1</version>
   <description>Integration of Dobot MG400 and RPLIDAR A1M8</description>
-  <maintainer email="falk-richard.kallmer@stud.leuphana.de">fkallmer</maintainer>
-  <license>Apache-2.0</license>
+  <maintainer email="falk-richard.kallmer@stud.leuphana.de">Falk-Richard Kallmer</maintainer>
+  <license>MIT</license>
 
-   <!-- Abhängigkeiten zur Laufzeit -->
-  <depend>rclpy</depend>
-  <depend>launch</depend>
-  <depend>launch_ros</depend>
-  <depend>robot_state_publisher</depend>
-  <depend>rviz2</depend>
-  <depend>mg400_description</depend>
-  <depend>std_msgs</depend>
-  <depend>mg400_node</depend>
-  <depend>xacro</depend>
+  <!-- Runtime dependencies -->
+  <depend>rclpy</depend> <!-- ROS 2 Python client library -->
+  <depend>launch</depend> <!-- ROS 2 launch system -->
+  <depend>launch_ros</depend> <!-- ROS 2 launch system for ROS-specific nodes -->
+  <depend>robot_state_publisher</depend> <!-- Publishes robot state to TF -->
+  <depend>rviz2</depend> <!-- Visualization tool for ROS 2 -->
+  <depend>mg400_description</depend> <!-- Description package for Dobot MG400 -->
+  <depend>std_msgs</depend> <!-- Standard ROS 2 message types -->
+  <depend>mg400_node</depend> <!-- Node for controlling Dobot MG400 -->
+  <depend>xacro</depend> <!-- XML macro language for robot descriptions -->
 
-  <exec_depend>python3-xacro</exec_depend>
+  <!-- Executable dependency -->
+  <exec_depend>python3-xacro</exec_depend> <!-- Python 3 version of xacro -->
 
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <!-- Test dependencies -->
+  <test_depend>ament_lint_auto</test_depend> <!-- Automates linting -->
+  <test_depend>ament_lint_common</test_depend> <!-- Common linting tools -->
+  <test_depend>ament_copyright</test_depend> <!-- Checks copyright headers -->
+  <test_depend>ament_flake8</test_depend> <!-- Python style checker -->
+  <test_depend>ament_pep257</test_depend> <!-- Python docstring style checker -->
+  <test_depend>python3-pytest</test_depend> <!-- Python testing framework -->
 
+  <!-- Export section -->
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>ament_python</build_type> <!-- Specifies build type as Python -->
   </export>
 </package>

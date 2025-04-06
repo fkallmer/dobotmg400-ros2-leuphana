@@ -1,3 +1,4 @@
+# Dockercontainer für ROS 2 Humble 
 FROM ghcr.io/sloretz/ros:humble-desktop-full
 
 # Systempakete aktualisieren, notwendige Pakete installieren und aufräumen
